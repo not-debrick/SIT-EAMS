@@ -4,7 +4,6 @@ $host = "localhost";
 $dbName = "sit_student_ams";
 $username = "root";
 $password = "";
-$tableMain = "tbl_attendance"; // change name for a different table (only used for testing)
 try {
     $con = new PDO(
         "mysql:host={$host};dbname={$dbName}",
@@ -13,9 +12,6 @@ try {
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
     
-    $query = "
-        SELECT * FROM ". $tableMain . " INNER JOIN tbl_studinfo ON " .$tableMain.".idNum = tbl_studinfo.id INNER JOIN tbl_events_list ON " .$tableMain.".eventId = tbl_events_list.id ORDER BY " .$tableMain.".id DESC LIMIT 5
-    ";
     
     $stmt = $con->prepare($query);
     $stmt->execute();

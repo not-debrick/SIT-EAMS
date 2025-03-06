@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Student Registration</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="m-3 col d-flex justify-content-center">
-        <p class="display-2 text-center text-wrap col-8"> Events Student Attendance Monitoring System </p>
-    </div>
+<?php
+    include (__DIR__ . '/CONSTANTS/header.php');
+?>
     <div class="container d-flex flex-row">
         <div class="d-flex col-4 p-3">
             <div class="d-flex flex-column col">
@@ -35,16 +26,18 @@
         <div class="col p-3">
             <p class="display-6">Registered Students</p>
             <?php
-                  include 'table_query.php';
+                    $tableMain = "tbl_attendance"; // change name for a different table (only used for testing)
+
+                    $query = "
+                    SELECT * FROM ". $tableMain . " INNER JOIN tbl_studinfo ON " .$tableMain.".idNum = tbl_studinfo.id INNER JOIN tbl_events_list ON " .$tableMain.".eventId = tbl_events_list.id ORDER BY " .$tableMain.".id DESC LIMIT 5
+                    ";
+                    include 'table_query.php';
                ?>
         </div>
     </div>
-    <div class="container justify-content-end">
-        <button class="btn btn-primary" onclick="window.location.href='admin.php'">Navigate</button>
+    <div class="container justify-content-end d-flex">
+        <button class="btn btn-primary col-3 m-3" onclick="window.location.href='admin.php'">Admin</button>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+<?php 
+    include (__DIR__ . '/CONSTANTS/footer.php');
+?>
