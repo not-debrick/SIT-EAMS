@@ -1,10 +1,11 @@
 <?php
-// Database Credentials
+/* // Database Credentials
 $host = "localhost";
-$dbName = "sit_student_ams";
+$dbName = "sit_eams";
 $username = "root";
 $password = "";
-$dsn = "mysql:host=$host;dbname=$dbName;";
+$dsn = "mysql:host=$host;dbname=$dbName;"; */
+    include (__DIR__ . '/CONSTANTS/dbConnection.php');
 
 // Database Connection
 try {
@@ -20,7 +21,7 @@ if (isset($_POST['register'])) {
    $studentId = $_POST['studentID'];
    $eventId = $_POST['eventId'];
     // Select Query
-    $query = "SELECT * FROM tbl_studinfo WHERE idNum=$studentId";
+    $query = "SELECT * FROM sit_student_info WHERE idNum=$studentId";
     if ($studentId != "") {
         if ($eventId != 0) {
             try {
@@ -53,7 +54,7 @@ if (isset($_POST['register'])) {
                  echo "<div> Course: " . $fetched_course . "</div>";
                  echo "<div> Year Level: " . $fetched_yearLevel . "</div>";
                  //Insert to new table
-                 $insert_query = "INSERT INTO tbl_attendance (idNum, timeIn, eventId) VALUES (?, ?, ?)";
+                 $insert_query = "INSERT INTO sit_attendance (idNum, timeIn, eventsId) VALUES (?, ?, ?)";
                  $insert_stmt = $con->prepare($insert_query);
                  $insert_stmt->execute([$fetched_id, $timeStamp, $eventId]);
                 } else {
