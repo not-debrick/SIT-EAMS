@@ -1,5 +1,6 @@
 <?php
     include (__DIR__ . '/CONSTANTS/header.php');
+    include (__DIR__ . '/CONSTANTS/navigation.php');
 ?>
     <div class="container d-flex flex-row">
         <div class="d-flex col-4 p-3">
@@ -25,18 +26,16 @@
         </div>
         <div class="col p-3">
             <p class="display-6">Registered Students</p>
+            <div id="emailHelp" class="form-text">Five (5) most recent entries.</div>
             <?php
-                    $tableMain = "tbl_attendance"; // change name for a different table (only used for testing)
+                    $tableMain = "sit_attendance"; // change name for a different table (only used for testing)
 
                     $query = "
-                    SELECT * FROM ". $tableMain . " INNER JOIN tbl_studinfo ON " .$tableMain.".idNum = tbl_studinfo.id INNER JOIN tbl_events_list ON " .$tableMain.".eventId = tbl_events_list.id ORDER BY " .$tableMain.".id DESC LIMIT 5
+                        SELECT * FROM sit_attendance inner join sit_student_info on sit_attendance.idNum = sit_student_info.id inner join sit_event_list on sit_attendance.eventsId = sit_event_list.id order by sit_attendance.id desc limit 5
                     ";
                     include 'table_query.php';
                ?>
         </div>
-    </div>
-    <div class="container justify-content-end d-flex">
-        <button class="btn btn-primary col-3 m-3" onclick="window.location.href='admin.php'">Admin</button>
     </div>
 <?php 
     include (__DIR__ . '/CONSTANTS/footer.php');
