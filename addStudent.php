@@ -13,22 +13,22 @@
             <!-- LAST NAME -->
             <div class="mb-3">
                 <label for="lbl_LastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="inp_StudentId" name="lastName" placeholder="DELA CRUZ">
+                <input type="text" class="form-control" id="inp_StudentId" name="lastName">
             </div>
             <!-- FIRST NAME -->
             <div class="mb-3">
                 <label for="lbl_FirstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="inp_StudentId" name="firstName" placeholder="JUAN">
+                <input type="text" class="form-control" id="inp_StudentId" name="firstName">
             </div>
             <!-- COURSE -->
             <div class="mb-3">
                 <label for="lbl_Course" class="form-label">Course/Program</label>
-                <input type="text" class="form-control" id="inp_StudentId" name="course" placeholder="BSIT">
+                <input type="text" class="form-control" id="inp_StudentId" name="course">
             </div>
             <!-- YEAR LEVEL -->
             <div class="mb-3">
                 <label for="lbl_YearLevel" class="form-label">Year Level</label>
-                <input type="text" class="form-control" id="inp_StudentId" name="yearLevel" placeholder="1">
+                <input type="text" class="form-control" id="inp_StudentId" name="yearLevel">
             </div>
             <button type="submit" class="btn btn-primary" name="insertStudent">Submit</button>
         </form>
